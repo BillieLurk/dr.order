@@ -80,7 +80,7 @@ const TimeText = styled.h2`
   color: white;
   text-align: start;
   margin-top: 20px;
- 
+
   top: 0;
   right: 0;
   display: flex;
@@ -90,7 +90,6 @@ const TimeText = styled.h2`
 
   padding: 0px 30px 16px 36px;
   margin: 0;
-  
 
   @media (max-width: 768px) {
     font-size: 1rem;
@@ -126,8 +125,6 @@ function Hero() {
     //make a gsap animation with the splittype and the textRef.current
     // Split the text
     const split = new SplitType(textRef.current, { types: "words, chars" });
-   
-
 
     // GSAP animation for the split text
     gsap.from(split.chars, {
@@ -138,8 +135,33 @@ function Hero() {
       ease: "power2.out",
       delay: 0.4, // Adjust delay to sync with overlay animation
     });
-    
   }, []);
+
+  const audioRef = useRef(null);
+
+  useEffect(() => {
+    const playAudio = () => {
+      if (audioRef.current) {
+        audioRef.current.play().catch(() => {
+          // Handle any errors trying to play the audio
+        });
+        // Remove the event listeners once the audio starts playing
+        document.removeEventListener('click', playAudio);
+        document.removeEventListener('keydown', playAudio);
+      }
+    };
+
+    // Add event listeners for user interactions
+    document.addEventListener('click', playAudio);
+    document.addEventListener('keydown', playAudio);
+
+    // Clean up the event listeners on component unmount
+    return () => {
+      document.removeEventListener('click', playAudio);
+      document.removeEventListener('keydown', playAudio);
+    };
+  }, []);
+
 
   return (
     <HeroContainer>
@@ -150,7 +172,7 @@ function Hero() {
       <HeroVideo autoPlay muted loop>
         <source src={video} type="video/mp4" />
       </HeroVideo>
-      <audio src={song} autoPlay loop>
+      <audio ref={audioRef} src={song} loop autoPlay>
         Your browser does not support the audio element.
       </audio>
     </HeroContainer>
