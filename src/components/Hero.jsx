@@ -99,6 +99,31 @@ const TimeText = styled.h2`
   }
 `;
 
+
+const PressButton = styled.p`
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 16px;
+  color: white;
+  text-align: start;
+  margin-top: 20px;
+
+  top: 0;
+  right: 0;
+
+  padding: 16px 30px 16px 24px;
+  margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    flex-direction: column;
+    padding: 20px 30px 20px 24px;
+    white-space: nowrap;
+  }
+  
+`;
+
 const HeroTextContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -165,7 +190,9 @@ function Hero() {
 
   return (
     <HeroContainer>
+      <PressButton>Press for sound</PressButton>
       <HeroOverlay ref={heroRef}>
+        
         <HeroText ref={textRef}>OPEN FOR NEWYEAR</HeroText>
         <TimeText ref={timeRef}>2024-01-01 01-03</TimeText>
       </HeroOverlay>
