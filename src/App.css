@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+
+
+@font-face {
+  font-family: "teka";
+  src: url("./assets/fonts/KHTeka-Regular.woff") format("woff"),
+       url("./assets/fonts/KHTeka-Regular.woff2") format("woff2");
+}
+
+* {
+  font-family: "teka";
+}
+body {
+  background-color: black !important;
+}
+
+h1 {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
