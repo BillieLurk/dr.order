@@ -67,7 +67,7 @@ const HeroText = styled.h1`
   line-height: 1.15;
 
   @media (max-width: 768px) {
-    font-size: 3rem;
+    font-size: 2.8;
     line-height: 1.4;
   }
 `;
@@ -92,7 +92,7 @@ const TimeText = styled.h2`
   margin: 0;
 
   @media (max-width: 768px) {
-    font-size: 1rem;
+    font-size: 0.9;
     flex-direction: column;
     padding: 0px 30px 20px 20px;
     white-space: nowrap;
@@ -116,7 +116,7 @@ const PressButton = styled.p`
   margin: 0;
 
   @media (max-width: 768px) {
-    font-size: 1rem;
+    font-size: 0.9;
     flex-direction: column;
     padding: 20px 30px 20px 24px;
     white-space: nowrap;
