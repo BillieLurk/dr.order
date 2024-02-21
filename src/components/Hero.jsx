@@ -15,7 +15,7 @@ const HeroContainer = styled.div`
 const HeroVideo = styled.video`
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
 
   @media (max-width: 768px) {
@@ -57,12 +57,12 @@ const HeroOverlay = styled.div`
 `;
 
 const HeroText = styled.h1`
-  font-size: 5rem;
+  font-size: 4rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 16px;
   color: white;
-  text-align: center;
+  text-align: left;
 
   line-height: 1.15;
 
@@ -73,32 +73,30 @@ const HeroText = styled.h1`
 `;
 
 const TimeText = styled.h2`
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 16px;
   color: white;
   text-align: start;
   margin-top: 20px;
-
+  margin-left: 16px;
   top: 0;
   right: 0;
-  display: flex;
+  display: flex !important;
   flex-direction: row;
 
   align-items: end;
-
-  padding: 0px 30px 16px 36px;
-  margin: 0;
+  margin-bottom: 0px;
 
   @media (max-width: 768px) {
-    font-size: 0.7rem;
-    flex-direction: column;
-    padding: 0px 30px 20px 20px;
+    font-size: 1.1rem;
+    margin-left: 8px;
+    
+    
     white-space: nowrap;
   }
 `;
-
 
 const PressButton = styled.p`
   font-size: 1.5rem;
@@ -121,24 +119,36 @@ const PressButton = styled.p`
     padding: 20px 30px 20px 24px;
     white-space: nowrap;
   }
-  
 `;
 
 const HeroTextContainer = styled.div`
   display: flex;
+  width: 100%;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: start;
+  align-items: left;
+  margin-left: 36px;
+  margin-bottom: 12px;
+  @media (max-width: 768px) {
+    margin-left: 16px;
+  }
+`;
+
+const TextPt1Container = styled.div`
+  display: flex !important;
+  justify-content: start;
 `;
 
 function Hero() {
   // Rename to 'Hero' with uppercase 'H'
 
   const heroRef = useRef(null);
-  const textRef = useRef(null);
+  const text1Ref = useRef(null);
+  const text2Ref = useRef(null);
   const timeRef = useRef(null);
   useEffect(() => {
-    gsap.to(heroRef.current, {
+    let tl = gsap.timeline();
+    tl.to(heroRef.current, {
       backgroundColor: "rgba(0, 0, 0, 0)",
       backdropFilter: "blur(0px)",
       filter: "blur(0px)",
@@ -149,17 +159,47 @@ function Hero() {
 
     //make a gsap animation with the splittype and the textRef.current
     // Split the text
-    const split = new SplitType(textRef.current, { types: "words, chars" });
-
+    const split1 = new SplitType(text1Ref.current, { types: "words, chars" });
+    const split2 = new SplitType(text2Ref.current, { types: "words, chars" });
+    const split3 = new SplitType(timeRef.current, { types: "words, chars" });
     // GSAP animation for the split text
-    gsap.from(split.chars, {
-      duration: 0.8,
-      opacity: 0,
-      y: 20,
-      stagger: 0.05,
-      ease: "power2.out",
-      delay: 0.4, // Adjust delay to sync with overlay animation
-    });
+    tl.from(
+      split1.chars,
+      {
+        duration: 0.4,
+        opacity: 0,
+        y: 20,
+        stagger: 0.05,
+        ease: "power2.out",
+        delay: 0.2, // Adjust delay to sync with overlay animation
+      },
+      "<"
+    );
+    tl.from(
+      split2.chars,
+      {
+        duration: 0.4,
+        opacity: 0,
+        y: 20,
+        stagger: 0.05,
+        ease: "power2.out",
+        delay: 0.2, // Adjust delay to sync with overlay animation
+      },
+      "<"
+    );
+
+    tl.from(
+      split3.chars,
+      {
+        duration: 0.4,
+        opacity: 0,
+        y: 20,
+        stagger: 0.05,
+        ease: "power2.out",
+        delay: 0.2, // Adjust delay to sync with overlay animation
+      },
+      "<"
+    );
   }, []);
 
   const audioRef = useRef(null);
@@ -171,30 +211,33 @@ function Hero() {
           // Handle any errors trying to play the audio
         });
         // Remove the event listeners once the audio starts playing
-        document.removeEventListener('click', playAudio);
-        document.removeEventListener('keydown', playAudio);
+        document.removeEventListener("click", playAudio);
+        document.removeEventListener("keydown", playAudio);
       }
     };
 
     // Add event listeners for user interactions
-    document.addEventListener('click', playAudio);
-    document.addEventListener('keydown', playAudio);
+    document.addEventListener("click", playAudio);
+    document.addEventListener("keydown", playAudio);
 
     // Clean up the event listeners on component unmount
     return () => {
-      document.removeEventListener('click', playAudio);
-      document.removeEventListener('keydown', playAudio);
+      document.removeEventListener("click", playAudio);
+      document.removeEventListener("keydown", playAudio);
     };
   }, []);
-
 
   return (
     <HeroContainer>
       <PressButton>Press for sound</PressButton>
       <HeroOverlay ref={heroRef}>
-        
-        <HeroText ref={textRef}>OPEN FOR NEWYEAR</HeroText>
-        <TimeText ref={timeRef}>2024-01-01 01-03</TimeText>
+        <HeroTextContainer >
+          <TextPt1Container>
+            <HeroText ref={text1Ref}>The</HeroText>
+            <TimeText ref={timeRef}>2024-xx-xx</TimeText>
+          </TextPt1Container>
+          <HeroText ref={text2Ref}>Apointment</HeroText>
+        </HeroTextContainer>
       </HeroOverlay>
       <HeroVideo autoPlay muted loop>
         <source src={video} type="video/mp4" />
