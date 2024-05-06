@@ -1,12 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
-import Hero from './components/Hero';
-
+import "./App.css";
+import Details from "./components/Details";
+import Hero from "./components/Hero";
 
 function App() {
   return (
     <div className="App">
       <Hero />
+      <Details />
     </div>
   );
 }

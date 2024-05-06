@@ -15,12 +15,14 @@ const HeroContainer = styled.div`
 const HeroVideo = styled.video`
   height: 100%;
   width: 100%;
+  max-width: 1200px;
   object-fit: contain;
   object-position: center;
 
   @media (max-width: 768px) {
-    height: 50%;
-    margin-top: 0px;
+    scale: 1.515;
+
+    margin-top: -20%;
   }
 `;
 
@@ -67,8 +69,9 @@ const HeroText = styled.h1`
   line-height: 1.15;
 
   @media (max-width: 768px) {
-    font-size: 2.2rem;
+    font-size: 2rem;
     line-height: 1.4;
+    letter-spacing: 8px;
   }
 `;
 
@@ -87,13 +90,14 @@ const TimeText = styled.h2`
   flex-direction: row;
 
   align-items: end;
-  margin-bottom: 0px;
+  margin-bottom: 6px;
 
   @media (max-width: 768px) {
-    font-size: 1.1rem;
+    margin-top: -1px;
+    font-size: 1rem;
+    letter-spacing: 8px;
     margin-left: 8px;
-    
-    
+    margin-bottom: 8px;
     white-space: nowrap;
   }
 `;
@@ -173,7 +177,7 @@ function Hero() {
         ease: "power2.out",
         delay: 0.2, // Adjust delay to sync with overlay animation
       },
-      "<"
+      "<",
     );
     tl.from(
       split2.chars,
@@ -185,7 +189,7 @@ function Hero() {
         ease: "power2.out",
         delay: 0.2, // Adjust delay to sync with overlay animation
       },
-      "<"
+      "<",
     );
 
     tl.from(
@@ -198,43 +202,16 @@ function Hero() {
         ease: "power2.out",
         delay: 0.2, // Adjust delay to sync with overlay animation
       },
-      "<"
+      "<",
     );
   }, []);
-
-  const audioRef = useRef(null);
-
-  useEffect(() => {
-    const playAudio = () => {
-      if (audioRef.current) {
-        audioRef.current.play().catch(() => {
-          // Handle any errors trying to play the audio
-        });
-        // Remove the event listeners once the audio starts playing
-        document.removeEventListener("click", playAudio);
-        document.removeEventListener("keydown", playAudio);
-      }
-    };
-
-    // Add event listeners for user interactions
-    document.addEventListener("click", playAudio);
-    document.addEventListener("keydown", playAudio);
-
-    // Clean up the event listeners on component unmount
-    return () => {
-      document.removeEventListener("click", playAudio);
-      document.removeEventListener("keydown", playAudio);
-    };
-  }, []);
-
   return (
     <HeroContainer>
-      <PressButton>Press for sound</PressButton>
       <HeroOverlay ref={heroRef}>
-        <HeroTextContainer >
+        <HeroTextContainer>
           <TextPt1Container>
             <HeroText ref={text1Ref}>The</HeroText>
-            <TimeText ref={timeRef}>2024-xx-xx</TimeText>
+            <TimeText ref={timeRef}>2024-05-18</TimeText>
           </TextPt1Container>
           <HeroText ref={text2Ref}>Apointment</HeroText>
         </HeroTextContainer>
@@ -242,9 +219,6 @@ function Hero() {
       <HeroVideo autoPlay muted loop>
         <source src={video} type="video/mp4" />
       </HeroVideo>
-      <audio ref={audioRef} src={song} loop autoPlay>
-        Your browser does not support the audio element.
-      </audio>
     </HeroContainer>
   );
 }
