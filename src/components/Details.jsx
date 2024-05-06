@@ -78,9 +78,10 @@ const Details = () => {
         <Content>05/18 @ 18:00</Content>
       </ItemContainer>
       <ItemContainer>
-        <Title>RSVP?</Title>
+        <Title>RSVP/OSA?</Title>
         <Content>
-          <Link href="https://forms.gle/TkkUuNCFtVF8Wyny9">HERE!</Link>
+          <Link href="https://forms.gle/TkkUuNCFtVF8Wyny9">HERE!</Link>{" "}
+          <span style={{ marginLeft: "0.0rem" }}>A GOOGLE FORM!</span>
         </Content>
       </ItemContainer>
     </Wrapper>
