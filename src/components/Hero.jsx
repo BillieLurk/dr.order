@@ -213,7 +213,7 @@ function Hero() {
             <HeroText ref={text1Ref}>The</HeroText>
             <TimeText ref={timeRef}>2024-05-18</TimeText>
           </TextPt1Container>
-          <HeroText ref={text2Ref}>Apointment</HeroText>
+          <HeroText ref={text2Ref}>Appointment</HeroText>
         </HeroTextContainer>
       </HeroOverlay>
       <HeroVideo autoPlay muted loop>
