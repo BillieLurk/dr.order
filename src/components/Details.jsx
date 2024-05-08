@@ -71,11 +71,17 @@ const Details = () => {
           <Link href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x465f78265e7eb5a9:0x17a4f4e04d1fa759?sa=X&ved=1t:8290&ictx=111">
             Slakthusgatan 6, 121 62 Johanneshov
           </Link>
+          <p>Rooftop/indoor depending on the weather</p>
         </Content>
       </ItemContainer>
       <ItemContainer>
         <Title>WHEN?</Title>
-        <Content>05/18 @ 18:00</Content>
+        <Content>
+          05/18 @ 18:00-closing
+          <p>
+            save this website remains up-to-date by saving it whenever occur
+          </p>
+        </Content>
       </ItemContainer>
       <ItemContainer>
         <Title>RSVP/OSA?</Title>
