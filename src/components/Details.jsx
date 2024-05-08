@@ -79,7 +79,7 @@ const Details = () => {
         <Content>
           05/18 @ 18:00-closing
           <p>
-            save this website remains up-to-date by saving it whenever occur
+            save this website to remains up-to-date by saving it whenever occur
           </p>
         </Content>
       </ItemContainer>
