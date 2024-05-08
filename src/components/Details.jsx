@@ -90,6 +90,11 @@ const Details = () => {
           <span style={{ marginLeft: "0.0rem" }}>A GOOGLE FORM!</span>
         </Content>
       </ItemContainer>
+
+      <ItemContainer>
+        <Title>LINE-UP</Title>
+        <Content>TBA</Content>
+      </ItemContainer>
     </Wrapper>
   );
 };
