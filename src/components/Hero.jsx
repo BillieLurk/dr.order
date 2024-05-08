@@ -3,10 +3,9 @@ import styled from "styled-components";
 import video from "../assets/videos/basic_doc.mp4";
 import { gsap } from "gsap"; // Import GSAP
 import SplitType from "split-type";
-import song from "../assets/audio/Wongel.mp3";
 
 const HeroContainer = styled.div`
-  height: 100vh;
+  height: 100svh;
   width: 100%;
   position: relative;
   overflow: hidden;

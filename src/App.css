@@ -37,11 +37,11 @@
   }
 }
 
-
 @font-face {
   font-family: "teka";
-  src: url("./assets/fonts/KHTeka-Regular.woff") format("woff"),
-       url("./assets/fonts/KHTeka-Regular.woff2") format("woff2");
+  src:
+    url("./assets/fonts/KHTeka-Regular.woff") format("woff"),
+    url("./assets/fonts/KHTeka-Regular.woff2") format("woff2");
 }
 
 * {
@@ -57,3 +57,4 @@ h1 {
   margin-inline-start: 0px;
   margin-inline-end: 0px;
 }
+
