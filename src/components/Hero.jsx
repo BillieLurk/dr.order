@@ -96,7 +96,7 @@ const TimeText = styled.h2`
     font-size: 1rem;
     letter-spacing: 8px;
     margin-left: 8px;
-    margin-bottom: 8px;
+    margin-bottom: 7px;
     white-space: nowrap;
   }
 `;
