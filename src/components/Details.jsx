@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  height: 100vh;
+  min-height: 100svh;
   background-color: black;
   border-top: 1px solid white;
   margin: 0 22px 0 22px;
@@ -93,7 +93,11 @@ const Details = () => {
 
       <ItemContainer>
         <Title>LINE-UP</Title>
-        <Content>TBA</Content>
+        <Content>STRÖM B2B DR</Content>
+        <Content>Pavel Petrov (420 GROUP)</Content>
+        <Content>ENDARKMENT</Content>
+        <Content>GL0RY</Content>
+        <Content>???</Content>
       </ItemContainer>
     </Wrapper>
   );
