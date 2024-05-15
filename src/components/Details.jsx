@@ -95,7 +95,7 @@ const Details = () => {
         <Title>LINE-UP</Title>
         <Content>STRÖM B2B DR</Content>
         <Content>Pavel Petrov (420 GROUP)</Content>
-        <Content>ENDARKMENT</Content>
+        <Content>ENDARKENMENT</Content>
         <Content>GL0RY</Content>
         <Content>???</Content>
       </ItemContainer>
