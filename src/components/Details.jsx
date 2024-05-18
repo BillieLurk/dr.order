@@ -93,11 +93,12 @@ const Details = () => {
 
       <ItemContainer>
         <Title>LINE-UP</Title>
-        <Content>STRÖM B2B DR</Content>
-        <Content>PAVEL PETROV (420 GROUP)</Content>
-        <Content>ENDARKENMENT</Content>
-        <Content>GL0RY</Content>
-        <Content>H-Field</Content>
+        <Content>18-20 STRÖM B2B DR</Content>
+        <Content>22-23 ENDARKENMENT</Content>
+        <Content>23-00 GL0RY</Content>
+        <Content>00-01 STRÖM</Content>
+        <Content>01-02 H-Field</Content>
+        <Content>02-03 ELIS KRÖGER</Content>
       </ItemContainer>
     </Wrapper>
   );
