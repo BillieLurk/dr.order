@@ -77,7 +77,7 @@ const Details = () => {
       <ItemContainer>
         <Title>WHEN?</Title>
         <Content>
-          05/18 @ 18:00-closing
+          05/18 @ 18:00-03:00
           <p>
             save this website to remains up-to-date by saving it whenever occur
           </p>
